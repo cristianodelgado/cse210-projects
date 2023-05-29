@@ -1,31 +1,40 @@
 using System;
-
+using System.Collections.Generic;
 class Program
 
 {
     static void Main(string[] args)
     {
-        Scripture scripture = new Scripture(
-        new Reference("John", 3, 16),
-        "For God so loved the world, that he gave his only begotten Son, that whosoever believeth in him should not perish, but have everlasting life.");
+        Reference reference = new Reference("John", 3, 16);
+        string text = "For God so loved the world, that he gave his only begotten Son, that whosoever believeth in him should not perish, but have everlasting life.";
+        Scripture scripture = new Scripture(reference, text);
 
-        bool StudyScripture = true;
-        while (StudyScripture)
+        
+        scripture.ShowScripture();
+
+        
+        Console.WriteLine("Press Enter to continue or type 'quit' to finish: ");
+        string input = Console.ReadLine();
+
+        while (input != "quit")
         {
-            Console.Clear();
+            
+            scripture.HideWords();
             scripture.ShowScripture();
-            Console.WriteLine("Press Enter to continue or type 'quit' to finish: ");
-            string option = Console.ReadLine();
-            if (option.ToLower() == "quit")
+
+            
+            if (scripture.AllWordsHidden())
             {
-                StudyScripture = false;
+                break;
             }
-            else
-            {
-                scripture.HideRandomWord();
-            }
+
+            
+            Console.WriteLine("Press Enter to continue or type 'quit' to finish:");
+            input = Console.ReadLine();
             
         }
+        
+        Console.ReadLine();
 
     }
 }

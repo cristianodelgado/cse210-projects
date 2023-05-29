@@ -6,6 +6,7 @@ public class Scripture
     private string _text;
     
     public List<Words> _words;
+    private List<int> hiddenWord;
     
     
 
@@ -17,28 +18,60 @@ public class Scripture
         _words = new List<Words>();
 
         string [] words = text.Split(' ');
-        foreach (string word in words)
+        for (int i = 0; i < words.Length; i++)
         {
-            _words.Add(new Words(word));
+            Words word = new Words(words[i], i);
+            _words.Add(word);
         }
+        hiddenWord = new List<int>();
 
     }
-    public void HideRandomWord()
+    public void HideWords()
     {
-        Random _randomWord = new Random();
-        int _random;
-        do
-        {
-            _random = _randomWord.Next(_words.Count);
+        List<int> availableWordIndices = Enumerable.Range(0, _words.Count).ToList();
+        List<int> indicesToHide = new List<int>();
 
+        Random random = new Random();
+
+        
+        for (int i = 0; i <= 2; i++)
+        {
+            int randomIndex = random.Next(0, availableWordIndices.Count);
+            int wordIndex = availableWordIndices[randomIndex];
+            indicesToHide.Add(wordIndex);
+            availableWordIndices.RemoveAt(randomIndex);
         }
-        while (_words[_random]._hidden);
-        _words[_random].Hide();
+
+        foreach (int index in indicesToHide)
+        {
+            _words[index].Hide();
+            hiddenWord.Add(index);
+        }
     }
-    
+
+    public bool AllWordsHidden()
+    {
+        return hiddenWord.Count == _words.Count;
+    }
+
     public void ShowScripture()
     {
-        Console.WriteLine($"{Reference}-{_text}");
-    }
+        Console.Clear();
+        Console.WriteLine($"{Reference} -");
 
+        foreach (var word in _words)
+        {
+            if (hiddenWord.Contains(word.Index))
+            {
+                Console.Write("- ");
+            }
+            else
+            {
+                Console.Write(word + " ");
+            }
+        }
+
+        Console.WriteLine();
+    }
+    
 }
