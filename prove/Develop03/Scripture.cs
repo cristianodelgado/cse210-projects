@@ -36,10 +36,12 @@ public class Scripture
         
         for (int i = 0; i <= 2; i++)
         {
+            
             int randomIndex = random.Next(0, availableWordIndices.Count);
             int wordIndex = availableWordIndices[randomIndex];
             indicesToHide.Add(wordIndex);
             availableWordIndices.RemoveAt(randomIndex);
+            
         }
 
         foreach (int index in indicesToHide)
@@ -57,13 +59,14 @@ public class Scripture
     public void ShowScripture()
     {
         Console.Clear();
-        Console.WriteLine($"{Reference} -");
+        Console.WriteLine($"{Reference.getReference()} -");
 
         foreach (var word in _words)
         {
             if (hiddenWord.Contains(word.Index))
             {
                 Console.Write("- ");
+                
             }
             else
             {
