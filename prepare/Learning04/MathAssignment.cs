@@ -1,16 +1,16 @@
 public class MathAssignment : Assignment
 {
-    private string _homeworkList;
+    private string _textbookSection;
     private string _problems;
-    public MathAssignment(string studentName, string topic, string homeworkList, string Problems)
+    public MathAssignment(string studentName, string topic, string textbookSection, string Problems)
         : base(studentName, topic)
     {
-        _homeworkList = homeworkList;
+        _textbookSection = textbookSection;
         _problems = Problems;
     }
 
     public object GetHomeworkList()
     {
-        return " Section" + _homeworkList + "Problems " + _problems;
+        return " Section" + _textbookSection + "Problems " + _problems;
     }
 }
