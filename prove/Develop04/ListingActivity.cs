@@ -1,6 +1,6 @@
 using System;
 
-class ListingActivity : Activity
+public class ListingActivity : Activity
 
 {
     
@@ -30,7 +30,7 @@ class ListingActivity : Activity
         Console.WriteLine("You may begin in: ");
          Console.WriteLine("");
             Console.WriteLine("Inhale...");
-            conteo(5);
+            count(5);
         DateTime start = DateTime.Now;
         DateTime end = start.AddSeconds(_duration);
         

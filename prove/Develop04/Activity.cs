@@ -1,6 +1,6 @@
 using System;
 
-class Activity
+public class Activity
 {
     private string _activityName;
     private string _description;
@@ -47,7 +47,7 @@ class Activity
         
         
     }
-    public void conteo(int inicio){
+    public void count(int inicio){
         for (int j = inicio; j >0; j--)
         {
             Console.Write(j);

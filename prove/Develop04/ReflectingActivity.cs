@@ -1,6 +1,6 @@
 using System;
 
-class ReflectingActivity : Activity
+public class ReflectingActivity : Activity
 {
     
     private string[] PromptText = {
@@ -42,7 +42,7 @@ class ReflectingActivity : Activity
         Console.ReadKey();
          Console.WriteLine("Now ponder on each of the following questions as they related to this experience.");
         Console.Write("You may begin in: ");
-        conteo(5);
+        count(5);
         DateTime start = DateTime.Now;
         DateTime end = start.AddSeconds(_duration);
         

@@ -1,6 +1,6 @@
 using System;
 
-class BreathingActivity : Activity
+public class BreathingActivity : Activity
 {
     
     
@@ -21,9 +21,9 @@ class BreathingActivity : Activity
         {
             Console.WriteLine("");
             Console.Write("Inhale...");
-            conteo(4);
+            count(4);
             Console.Write("Exhale...");
-            conteo(6);
+            count(6);
 
         }
     }    
