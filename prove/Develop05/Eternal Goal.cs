@@ -12,7 +12,7 @@ public class EternalGoal : Goal
     {
         return GetPoints();
     }
-    public override bool isComplete()
+    public override bool IsComplete()
     {
         return false;
         

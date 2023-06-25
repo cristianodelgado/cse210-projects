@@ -10,11 +10,11 @@ partial class Program
         
         List<Goal> _goals = new List<Goal>();
         string fileName;
-        int _Points = 0;
+        int _points = 0;
         bool quit = false;
         int GetPoints()
         {
-            return _Points;
+            return _points;
         }
 
         while (!quit)
@@ -89,7 +89,7 @@ partial class Program
                     foreach(Goal goal in _goals)
                     {
                         counter++;
-                        string ready = goal.isComplete() ? "[x]" : "[ ]";
+                        string ready = goal.IsComplete() ? "[x]" : "[ ]";
                         string _partComplete = goal is CheckListGoal ? $"--- Currently completed: {((CheckListGoal)goal).GetCompleteCount()}/{((CheckListGoal)goal).GetGoalCount()}" : "";    
                         Console.WriteLine($"{counter}. {ready} {goal.GetName()} ({goal.GetDescription()}){_partComplete}"); 
                             
@@ -102,12 +102,12 @@ partial class Program
                     
                     using (StreamWriter outputFile = new StreamWriter(fileName))
                     {
-                        outputFile.WriteLine(_Points);
+                        outputFile.WriteLine(_points);
                         foreach(Goal goal in _goals)
                         {
                             if(goal is SimpleGoal)
                             {
-                                if(goal.isComplete() == true)
+                                if(goal.IsComplete() == true)
                                 {                                        
                                     outputFile.WriteLine($"Simple: {goal.GetName()}, {goal.GetDescription()}, {goal.GetPoints()}, True");
                                 }
@@ -133,19 +133,19 @@ partial class Program
                 case 4:
                     Console.Write("What is the filename for the goal file?");
                     fileName = Console.ReadLine();
-                    string[] Data = System.IO.File.ReadAllLines(fileName);
+                    string[] data = System.IO.File.ReadAllLines(fileName);
                     _goals.Clear();
                     int _number = 0;
-                    foreach(string data in Data)
+                    foreach(string _data in data)
                     {
                         if (_number == 0)
                         {
-                            _Points = int.Parse(data);
+                            _points = int.Parse(_data);
                         }
                         else
                         {
                             Goal _goal = null;
-                            string[] getItems = data.Split(":");
+                            string[] getItems = _data.Split(":");
                             string[] getName = getItems[1].Split(",");
                             if(getItems[0] == "Simple")
                             {
@@ -176,7 +176,7 @@ partial class Program
                     }
                     Console.Write("Which goals did you accomplish? ");
                     int _selected = int.Parse(Console.ReadLine());
-                    if(_goals[_selected].isComplete() == true) 
+                    if(_goals[_selected].IsComplete() == true) 
                     {
                         Console.WriteLine("you already finished this goal");
 
@@ -185,7 +185,7 @@ partial class Program
                     {
                         int _accumulatedPoints = _goals[_selected].RecordEvent();
                         Console.WriteLine($"Congratulations! You have earned {_accumulatedPoints} points!");
-                        _Points += _accumulatedPoints;
+                        _points += _accumulatedPoints;
                         Console.WriteLine($"You now have {GetPoints()} points.");
                         Console.WriteLine("");
                     }
