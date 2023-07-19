@@ -14,21 +14,33 @@ class Program
         OutdoorGathering outdoorGathering1 = new OutdoorGathering("Outdoor Gathering 1°", "Outdoor Gathering Description 1°", "09/02/2023", "20:00", address1, "Cold");
         
         Console.WriteLine("--- Standard Details ---");
+        Console.WriteLine();
         Console.WriteLine(event1.GetStandarDetails());
+        Console.WriteLine();
         Console.WriteLine(lecture1.GetStandarDetails());
+        Console.WriteLine();
         Console.WriteLine(reception1.GetStandarDetails());
+        Console.WriteLine();
         Console.WriteLine(outdoorGathering1.GetStandarDetails());
-
+        Console.WriteLine("-------------------------------------");
         Console.WriteLine("--- Full Details ---");
+        Console.WriteLine();
         Console.WriteLine(event1.GetFullDetails());
+        Console.WriteLine();
         Console.WriteLine(lecture1.GetFullDetails());
+        Console.WriteLine();
         Console.WriteLine(reception1.GetFullDetails());
+        Console.WriteLine();
         Console.WriteLine(outdoorGathering1.GetFullDetails());
-
+        Console.WriteLine();
         Console.WriteLine("--- Short Description ---");
+        Console.WriteLine();
         Console.WriteLine(event1.GetShortDescription());
+        Console.WriteLine();
         Console.WriteLine(lecture1.GetShortDescription());
+        Console.WriteLine();
         Console.WriteLine(reception1.GetShortDescription());
+        Console.WriteLine();
         Console.WriteLine(outdoorGathering1.GetShortDescription());
     }
 

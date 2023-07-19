@@ -29,6 +29,7 @@ public class Program
 
         foreach(Video v in _videos)
         {
+            Console.WriteLine();
             Console.WriteLine($"Title:  {v._title}.");
             Console.WriteLine( $"Author:  {v._autor}.");
             Console.WriteLine( $"Length: {v._lengthVideo} seconds.");
@@ -39,7 +40,8 @@ public class Program
                 Console.WriteLine($"Comment by: {comment._name}");
                 Console.WriteLine($"Comment text: {comment._textComment}");
             }
-        }      
+        }
+
         Console.WriteLine();
     }
 }

@@ -4,14 +4,17 @@ class Order
 {
     private List<Product> _products; 
     private Customer _customer;
-    public Order(Customer customer){
+    public Order(Customer customer)
+    {
         _customer = customer;
         _products = new List<Product>();
     }
-    public void AddProducts(Product product){
+    public void AddProducts(Product product)
+    {
         _products.Add(product);
     }
-    public double GetTotalPrice(){
+    public double GetTotalPrice()
+    {
         double totalPrice = 0;
         foreach(Product product in _products)
         {
@@ -24,9 +27,10 @@ class Order
         {
             totalPrice += 35;
         }
-        return totalPrice;
+        return Math.Round(totalPrice);
     }
-    public string GetPackingLabel(){
+    public string GetPackingLabel()
+    {
         string packingLabel = "";
         foreach(Product product in _products)
         {
@@ -34,7 +38,8 @@ class Order
         }
         return packingLabel;
     }
-    public string GetShippingLabel(){
+    public string GetShippingLabel()
+    {
         
         return $"Name: {_customer.GetName()}\nAddress: {_customer.Address.GetAddress()}";
     }

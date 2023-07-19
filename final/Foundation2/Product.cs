@@ -7,22 +7,27 @@ public class Product
     private int _quantity;
     private double _price;
 
-    public Product(string nameProduct, int id, int quantity, double price){
+    public Product(string nameProduct, int id, int quantity, double price)
+    {
         _nameProduct = nameProduct;
         _id = id;
         _quantity = quantity;
         _price = price;
     }
-    public string GetNameProduct(){
+    public string GetNameProduct()
+    {
         return _nameProduct;
     }
-    public int GetId(){
+    public int GetId()
+    {
         return _id;
     }
-    public int GetQuantity(){
+    public int GetQuantity()
+    {
         return _quantity;
     }
-    public double GetPrice(){
+    public double GetPrice()
+    {
         return _price;
     }
 

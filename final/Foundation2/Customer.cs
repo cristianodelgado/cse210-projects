@@ -15,7 +15,8 @@ class Customer
     {
         get {return _address; }
     }
-    public Customer(string name, Address address){
+    public Customer(string name, Address address)
+    {
         _name = name;
         _address = address;
     }

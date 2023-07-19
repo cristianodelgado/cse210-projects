@@ -8,7 +8,8 @@ public class StationaryBicycles : Activity
     {
         _speed = speed;
     }
-    public override double GetDistance(){
+    public override double GetDistance()
+    {
         return 0;
     }
 
